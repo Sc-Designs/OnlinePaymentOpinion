@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EdiPost</title>
+    <link rel="shortcut icon" href="/images/android-chrome-512x512.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        ::selection{
+            background-color: #000000;
+            color: #ffffff;
+        }
+        textarea::-webkit-scrollbar{
+            background: transparent;
+            width: 10px;
+        }
+        textarea::-webkit-scrollbar-thumb{
+            background: #ffff;
+            border-radius: 10px;
+        }
+        textarea{
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="bg-zinc-800 flex justify-center items-center h-screen">
+    <div class="w-[80vw] h-[80vh] rounded-xl flex flex-col justify-center items-center">
+        <h1 class="text-white tracking-widest text-4xl font-mono uppercase font-semibold">-Edit your post-</h1>
+        <form action="/edit/<%= editpost._id %>" method="post" class="flex flex-col px-10 py-2 gap-y-9 items-center">
+            <textarea name="editpost" id="" cols="120" rows="19" placeholder="-Edit_Your_Text_Here-" class="resize-none outline-none py-2 px-5 rounded-xl bg-transparent border-4 border-zinc-700 text-white text-lg font-semibold text-justify"><%= editpost.text %></textarea>
+            <input type="submit" class="text-white w-fit px-20 py-2 cursor-pointer bg-yellow-600 font-semibold text-lg rounded-xl" value="Edit Your Post">
+        </form>
+        <a href="/profile" class="bg-blue-500 px-4 py-1 rounded-lg text-white absolute top-4 right-5">-Back To Profile-</a>
+    </div>
+</body>
+</html>

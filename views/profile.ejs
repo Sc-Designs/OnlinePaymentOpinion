@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
+    <link rel="shortcut icon" href="images/android-chrome-512x512.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/stylesheets/profile.css">
+    <title>Profile</title>
+</head>
+<body>
+    <div class="w-full min-h-screen">
+        <img class="fixed w-full h-screen brightness-50" src="https://images.unsplash.com/photo-1478760329108-5c3ed9d495a0?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+<!-- TODO: navbar -->
+        <div class=" w-full h-16 px-5 fixed z-20">
+    <div class="h-full w-full flex justify-between items-center">
+      <div class="w-fit h-fit px-2 flex items-center"><span class="text-orange-500 text-4xl font-semibold">S</span><span class="text-white text-5xl font-semibold drop-shadow-lg">S</span><span class="text-green-500 text-4xl font-semibold">S</span></div>
+      <div class="w-[30%] h-full flex justify-around items-center ">
+        <a href="/" class="link text-center text-white w-24  text-[1.3vw] hover:font-semibold"><span class="relative z-10 link-text">Home</span></a>
+        <a href="/about" class="link text-center text-white w-24  text-[1.3vw] hover:font-semibold"><span class="relative z-10 link-text">About</span></a>
+        <a href="/docs" class="link text-center text-white w-24  text-[1.3vw] hover:font-semibold"><span class="relative z-10 link-text">Docs</span></a>
+        <a href="/contact" class="link text-center text-white w-24  text-[1.3vw] hover:font-semibold"><span class="relative z-10 link-text">Contact</span></a>
+      </div>
+    </div>
+        </div>
+<!-- TODO: upload profile picture -->
+        <form id="uploadform" action="/fileupload" method="post" enctype="multipart/form-data">
+            <input type="file" name="image" id="">
+        </form>
+<!-- TODO: profile picture part -->
+        <div class="pt-16 relative">
+            <div class="h-fit w-fit relative z-50 left-[50%] -translate-x-[50%]">
+            <div class="w-28 h-28 bg-[url('https://i.pinimg.com/474x/66/ff/cb/66ffcb56482c64bdf6b6010687938835.jpg')] bg-[length:130px_140px] bg-center rounded-full overflow-hidden">
+                <img class="h-full w-full object-cover" src="/images/upload/<%= user.profileImage %>" alt="">
+            </div>
+                <span id="pencil" class="bg-zinc-400 absolute bottom-0 right-0 rounded-full px-2 py-[0.2vw] text-lg"><i class="ri-pencil-fill"></i></span>
+            </div>
+        </div>
+<!-- TODO: posting part -->
+        <div class="w-full h-full pt-5 relative">
+            <a class="absolute -top-14 right-5 bg-red-600 px-3 py-1 rounded-lg text-white text-lg hover:font-semibold hover:bg-red-700" href="/login">- LogOut -</a>
+            <h1 class="text-center text-4xl text-white font-semibold"><%= user.fullname %> <i id="edit-name" class="ri-pencil-fill text-lg"></i></h1>
+            <h1 class="text-center text-2xl text-zinc-200 font-semibold">@<%= user.username %></h1>
+            <div class="w-full h-64 p-4 relative">
+                <form action="/create" method="post">
+                    <textarea name="content" id="" cols="30" rows="5" placeholder="Give Your Opinion" class="w-full mt-2 p-2 border-2 border-zinc-500 text-lg text-justify resize-none outline-none rounded-lg text-white font-semibold tracking-widest leading-2 placeholder:font-semibold placeholder:text-zinc-100"></textarea>
+                    <input type="submit" value="Send" class="absolute bottom-2 right-7 bg-green-500 text-white px-10 py-1 tracking-widest rounded-lg text-lg hover:font-semibold hover:bg-green-700">
+                </form>
+            </div>
+            <div class="w-full flex flex-wrap gap-y-5 gap-x-3 justify-center items-center py-10 px-5">
+                <h1 class="text-center font-semibold text-4xl text-zinc-200 underline">Your Opinions</h1>
+                <div class="w-full py-2  px-2 flex flex-col gap-5 rounded-lg">
+                    <% if(user.posts.length > 0){ %>
+                        <% user.posts.forEach(function(val) { %>
+                            <div class="w-fit p-2  flex flex-col gap-5 rounded-lg" style="background-color: #ffffff21; backdrop-filter: blur(9px);">
+                                <span class="text-lg font-bold text-zinc-100 font-mono"><%= val.date %></span>
+                            <div class="w-fit py-2 px-2 -mt-4 bg-zinc-300 rounded-lg">
+                                <h1 class="text-justify text-black text-lg font-semibold"><%= val.text %></h1>
+                                <div class="w-full flex justify-between items-center gap-x-10">
+                                    <!-- TODO: edit part -->
+                                    <form action="/edit/<%= val._id %>" class="mr-2 flex items-center">
+                                        <i class="ri-quill-pen-fill text-green-600 text-xl"></i>
+                                        <input type="submit" value="Edit" class="text-green-700 font-bold cursor-pointer">
+                                    </form>
+                                    <!-- TODO: Delete part -->
+                                    <form class="flex items-center" action="/delete/<%= val._id %>" method="post">
+                                    <i class="ri-delete-bin-2-fill text-red-600 text-lg mr-1"></i>
+                                    <input type="submit" class="text-red-700 font-bold cursor-pointer hover:underline" value="Delete"/>
+                                    </form>
+                                </div>
+                            </div>
+                            </div>
+                        <% }) %>
+                        <% } else { %>
+                            <div class="w-full h-fit py-1 flex justify-center mt-14">
+                                <h1 class="text-8xl tracking-widest font-['Colonna_MT'] text-zinc-200 font-bold uppercase ">-No Opinion Available-</h1>
+                            </div>
+                            <% } %>
+                        </div>
+            </div>
+        </div>
+<!-- TODO: edit fullname -->
+        <div id="edit-area" class="fixed w-[30vw] h-fit py-9 z-50 top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] flex flex-col items-center justify-center rounded-xl">
+            <i id="close" class="ri-close-circle-line absolute top-2 right-4 text-white text-3xl"></i>
+            <h1 class="mb-5 text-white text-xl font-semibold">Edit Your Fullname</h1>
+            <p id="name-error" class="text-white absolute top-20"></p>
+            <form action="/update/<%= user._id %>" method="post" class="w-full h-fit my-5 px-8 flex flex-col items-center justify-center gap-y-10">
+                <input id="name" type="text" class="w-full h-10 px-4 font-semibold text-white placeholder:text-zinc-300" placeholder="<%= user.fullname %>" name="editname" autofocus autocomplete="off">
+                <input type="submit" class="bg-yellow-400 px-7 text-xl py-1 rounded-lg font-bold font-sans hover:bg-yellow-600" value="Update" onclick="return validupdate()">
+            </form>
+        </div>
+    </div>
+</body>
+<script src="/javascripts/profile.js"></script>
+</html>

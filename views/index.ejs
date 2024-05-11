@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Payment Gate Way</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="shortcut icon" href="images/android-chrome-512x512.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sheryjs/dist/Shery.css" />
+  </head>
+<body class="bg-zinc-300">
+  <!-- TODO: Loader -->
+  <div id="loader" class="flex justify-center items-center bg-zinc-400">
+    <div class="px-4 w-fit">
+      <h1 id="loader-text" class="text-8xl font-semibold font-['Colonna_MT'] text-zinc-400">We Build A Digital India</h1>
+    </div>
+  </div>
+  <!-- TODO: Main Body -->
+  <div id="wrapper" class="relative z-20 w-full bg-zinc-300 opacity-0">
+  <div id="navbar" class="w-full h-16 bg-zinc-300 px-5 fixed z-20">
+    <div class="h-full w-full flex justify-between items-center">
+      <div class="w-fit h-fit px-2 flex items-center"><span class="text-orange-500 text-4xl font-semibold">S</span><span class="text-white text-5xl font-semibold drop-shadow-lg">S</span><span class="text-green-500 text-4xl font-semibold">S</span></div>
+      <div class="w-[30%] h-full flex justify-around items-center ">
+        <a id="nav-text" href="/" class="first-link text-center  w-24  text-[1.3vw] font-semibold"><span class="relative z-10 text-white">Home</span></a>
+        <a id="nav-text" href="/about" class="link text-center  w-24  text-[1.3vw] hover:font-semibold"><span class="relative z-10 link-text">About</span></a>
+        <a id="nav-text" href="/docs" class="link text-center  w-24  text-[1.3vw] hover:font-semibold"><span class="relative z-10 link-text">Docs</span></a>
+        <a id="nav-text" href="/contact" class="link text-center  w-24  text-[1.3vw] hover:font-semibold"><span class="relative z-10 link-text">Contact</span></a>
+      </div>
+    </div>
+  </div>
+  <div class="w-full h-[35vw] pt-16">
+    <div class="swiper mySwiper h-full">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide relative">
+        <img class="object-cover object-center brightness-50 w-full h-full" src="https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?q=80&w=2074&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+        <h1 class="absolute z-10 text-white top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] text-7xl whitespace-nowrap pointer-events-none">Save The Tree & Enviornment</h1>
+        <h1 class="absolute z-10 text-white top-[60%] left-[50%] -translate-x-[50%] -translate-y-[50%] text-1xl  whitespace-nowrap tracking-widest pointer-events-none">Shift To The Online Payment Transaction & dont Hurm the Enviornment</h1>
+      </div>
+      <div class="swiper-slide">
+        <img class="object-cover object-center brightness-50 w-full h-full" src="https://images.unsplash.com/photo-1644952354935-0bc0d25a9996?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+        <h1 class="absolute z-10 text-white top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] text-7xl whitespace-nowrap pointer-events-none">One Currency To Another Currency</h1>
+        <h1 class="absolute text-2xl z-10 text-white top-[65%] left-[50%] -translate-x-[50%] -translate-y-[50%] text-1xl  whitespace-nowrap tracking-widest pointer-events-none">Not Worry To Change The Currency</h1>
+      </div>
+      <div class="swiper-slide">
+        <img class="object-cover object-top brightness-50 w-full h-full" src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+        <h1 class="absolute z-10 text-white top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] text-8xl whitespace-nowrap pointer-events-none">Online Card Payment</h1>
+        <h1 class="absolute text-2xl z-10 text-white top-[65%] left-[50%] -translate-x-[50%] -translate-y-[50%] text-1xl  whitespace-nowrap tracking-widest pointer-events-none">Transaction Between One Place To Another Place</h1>
+      </div>
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+  </div>
+  </div>
+  <div class="w-full h-[30vw] flex">
+    <div class="w-[60%] h-full flex items-center flex-col px-12 gap-y-7">
+      <h1 class="text-4xl  pt-5">Here are Some Online Application</h1>
+      <p class="text-2xl font-semibold text-justify text-zinc-300" id="gsap">Online payment systems have revolutionized the way transactions occur in the modern world. With the advent of digital technology, consumers can now securely and conveniently make purchases and transfer funds with just a few clicks. These systems offer benefits such as speed, ease of use, and enhanced security measures, making them increasingly popular among businesses and individuals alike. From e-commerce platforms to mobile banking apps, online payment solutions have become integral to our daily lives, shaping the way we manage our finances and conduct transactions in the digital age.</p>
+      <a id="anker" href="/learn"><button id="button" class="bg-blue-600 text-white text-lg px-4 py-2 rounded-lg font-semibold">Learn More <i class="ri-arrow-right-up-line text-lg font-normal"></i></button></a>
+    </div>
+    <div class="w-[40%] h-full overflow-hidden flex justify-between items-center">
+        <div class="swiper mySwipers card">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide cards">
+        <img class="w-full h-full object-cover" src="https://imgs.search.brave.com/JF5kMvOI60wRKbm76GU4zN-tF__YA1bC-YyYqVyUYXA/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9zdHls/ZXMucmVkZGl0bWVk/aWEuY29tL3Q1XzM4/ZW5zL3N0eWxlcy9j/b21tdW5pdHlJY29u/Xzg0aWg4eTlkMnV6/ODEucG5n" alt="">
+      </div>
+      <div class="swiper-slide cards">
+        <img class="w-full h-full object-cover" src="https://imgs.search.brave.com/lOh7iH53znVbPhRi3EAqaxtKqKcqLPJDVvHwDGwZCyM/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzAwL2Nl/L2ExLzAwY2VhMTE0/MjZkNjI2ZWJmZjY0/ZDgxZTQwNGFkMDRi/LmpwZw" alt="">
+      </div>
+      <div class="swiper-slide cards">
+        <img class="w-full h-full object-cover" src="https://imgs.search.brave.com/sSF0C-t8CdIFINWofOEW9UWkkBSMTGP70127fENmoJk/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9sb2dv/cy1kb3dubG9hZC5j/b20vd3AtY29udGVu/dC91cGxvYWRzLzIw/MjEvMDEvUGhvbmVQ/ZV9Mb2dvLTcwMHg2/OTgucG5n" alt="">
+      </div>
+      <div class="swiper-slide cards">
+        <img class="w-full h-full object-cover" src="https://imgs.search.brave.com/ub0IOg1KKr80y3u9zWT7j7nUP_lpJJQbvu9N30hrj-w/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9sb2dv/ZGl4LmNvbS9sb2dv/LzE3NjM1OTgucG5n" alt="">
+      </div>
+    </div>
+  </div>
+    </div>
+  </div>
+  <div class="w-full h-[35vw] mt-5 relative overflow-hidden">
+    <img id="window" class="w-0 h-full absolute left-[50%] -translate-x-[50%] object-cover object-bottom brightness-50" src="https://images.unsplash.com/photo-1565373677928-90e963765eac?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+    <h1 class="absolute w-[70%] top-[50%] left-[50%] text-zinc-300 text-5xl text-center leading-normal font-semibold -translate-x-[50%] -translate-y-[50%]">The amount of carbon dioxide (CO2) released into the atmosphere when trees are cut down for paper production is estimated to be about 28 million metric tons per year. This makes up 20% of all global CO2 emissions.</h1>
+    <a class="absolute left-[50%] -translate-x-[50%] top-[85%]" href="/docs"><button class="text-white border-2 text-zinc-200 font-semibold px-3 py-2 rounded-xl hover:bg-white hover:text-black">Give Your Opinion</button></a>
+  </div>
+  <div class="w-full bg-black py-5 px-2">
+    <div class="w-fit flex  gap-x-14 px-6">
+      <h1 class="text-white text-2xl">Details ||</h1>
+      <ul style="list-style-type:disc;" class="flex flex-col whitespace-nowrap">
+        <strong class="text-white border-b-2 pb-[0.05vw] text-xl">Suvam Chakraborti(CEO)</strong>
+        <li class="text-zinc-500 font-semibold mt-2">Phone no. - 8001165553</li>
+        <li class="text-zinc-500 font-semibold">Email - nfgaming4523@gmail.com</li>
+        <li class="text-zinc-500 font-semibold mb-1">Part - Frontent & Backend Dev.</li>
+      </ul>
+      <ul style="list-style-type:disc;" class="flex flex-col whitespace-nowrap">
+        <strong class="text-white border-b-2 pb-[0.05vw] text-xl">Subhasish Addya(Manager)</strong>
+        <li class="text-zinc-500 font-semibold mt-2">Phone no. - 8918950886</li>
+        <li class="text-zinc-500 font-semibold mb-1">Email - riju041199@gmail.com</li>
+      </ul>
+      <ul style="list-style-type:disc;" class="flex flex-col whitespace-nowrap">
+        <strong class="text-white border-b-2 pb-[0.05vw] text-xl">Suryadip Mondal</strong>
+        <li class="text-zinc-500 font-semibold mt-2">Phone no. - 9932513526</li>
+        <li class="text-zinc-500 font-semibold mb-1">Email - mailtosuryadip23@gmail.com</li>
+      </ul>
+      <ul style="list-style-type:disc;" class="flex flex-col whitespace-nowrap">
+        <strong class="text-white border-b-2 pb-[0.05vw] text-xl">Diptanu Mondal</strong>
+        <li class="text-zinc-500 font-semibold mt-2">Phone no. - 6295703626</li>
+        <li class="text-zinc-500 font-semibold mb-1">Email - diptanuranju@gmail.com</li>
+      </ul>
+    </div>
+  </div>
+</div>
+</body>
+<!-- TODO:gsap -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<!-- TODO:ScrollTrigger -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<!-- TODO:Three.js is needed for 3d Effects -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.155.0/three.min.js"></script>
+<!-- TODO:ControlKit is needed for Debug Panel -->
+<script src="https://cdn.jsdelivr.net/gh/automat/controlkit.js@master/bin/controlKit.min.js"></script>
+<!-- TODO:sheryjs -->
+<script  type="text/javascript"  src="https://cdn.jsdelivr.net/npm/sheryjs/dist/Shery.js"></script>
+<!-- TODO:Swiperjs -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<!-- TODO:My js -->
+<script src="javascripts/script.js"></script>
+</html>

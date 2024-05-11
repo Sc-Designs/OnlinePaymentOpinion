@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/android-chrome-512x512.png" type="image/x-icon">
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
+    <title>Error</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Mukta+Malar:wght@200&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --shinyColor: #C95C6E;
+}
+
+body {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    
+    background-color: black;
+    background-position: center;
+    background-size: cover;
+}
+
+body::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(-45deg,#202124,black);
+    z-index: -1000;
+    opacity: .89;
+}
+
+h1 {
+    position: relative;
+    width: 350px;
+    text-align: center;
+    background-color: transparent;
+    color: transparent;
+    text-shadow: 
+        0 0 4px #fff,
+        0 0 11px #fff,
+        0 0 19px #fff,
+        0 0 25px var(--shinyColor),
+        0 0 30px var(--shinyColor),
+        0 0 40px var(--shinyColor),
+        20px 0px 100px white;
+    -webkit-text-stroke: 5px white;   
+    font-size: 5em;
+    font-family: sans-serif;
+    letter-spacing: 13px;
+    animation-name: flicker;
+    animation-duration: 3s;
+    animation-delay: 2s;
+    animation-iteration-count: infinite;
+}
+
+h1::after {
+    position: absolute;
+    content: "";
+    background-color: white;
+    width: 70%;
+    height: 100%;
+    border-radius: 50%;
+    top: 0;
+    left: 40px;
+    z-index: -100;
+    filter: blur(10px);
+    opacity: .05;
+}
+
+.pendulum {
+    position: absolute;
+    top: -30px;
+    left: 55px;
+    transform-origin: bottom;
+    animation-name: pendulum;
+    animation-duration: 1s;
+    animation-iteration-count: infinite ;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+    
+}
+
+a {
+    font-size: 1.5em;
+    position: absolute;
+    bottom: 20px;  
+    letter-spacing: 10px;
+    text-decoration: none;
+    color: white;
+}
+
+img {
+    position: absolute;
+    top: 35px;
+    left: 55px;
+    width: 90px;
+    height: 75px;
+}
+
+@keyframes flicker {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+
+        text-shadow:
+        0 0 4px #fff,
+        0 0 11px #fff,
+        0 0 19px #fff,
+        0 0 25px var(--shinyColor),
+        0 0 30px var(--shinyColor),
+        0 0 35px var(--shinyColor),
+        20px 0px 100px white;
+    
+    }
+    
+    20%, 24%, 55% {        
+        text-shadow: none;
+    }    
+}
+
+@keyframes pendulum {
+    0% {
+        transform : rotateZ(190deg);
+    }
+
+    100% {
+        transform: rotateZ(165deg)
+    }
+}
+.home{
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: fit-content;
+    background-color: rgb(18, 107, 185);
+    white-space: nowrap;
+    padding: 0.2vw 1.2vw;
+    border-radius: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1vw;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-decoration: none;
+}
+    </style>
+</head>
+<body>
+     <div id="container">    
+        <h1>
+            <span class="pendulum">4</span>04 Page Not Found
+        </h1>   
+    </div>
+    <a href="/" class="home">Go TO HOME <i class="ri-arrow-right-up-line"></i></a>
+</body>
+</html>
