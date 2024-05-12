@@ -9,7 +9,7 @@ const moment = require("moment");
 passport.use(new localStrategy(userModel.authenticate()));
 // GET home page. //
 router.get('/', function(req, res, next) {
-  res.render('index');
+  res.render('index.html');
 });
 router.get("/learn", function (req, res, next) {
   res.render("learn");
