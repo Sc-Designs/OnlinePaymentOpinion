@@ -1,6 +1,9 @@
 const mongoose = require("mongoose");
 const plm = require("passport-local-mongoose");
-mongoose.connect("mongodb://127.0.0.1:27017/CashLessIndia");
+const connectDB = async()=>{
+  await mongoose.connect("mongodb+srv://suvam:suvam123@cashlessindia.mrzvr4f.mongodb.net/CashLessIndia");
+} 
+connectDB()
 const userSchema = mongoose.Schema({
   fullname: String,
   email: String,
