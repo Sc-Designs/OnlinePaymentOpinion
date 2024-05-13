@@ -106,6 +106,17 @@ router.post("/delete/:postid",async function(req, res, next) {
   let post = await postModel.findOneAndDelete({
     _id: req.params.postid
   })
+  let user = await userModel.findOneAndUpdate(
+    { _id: post.user },
+    { $pull: { posts: req.params.postid } },
+    { new: true }
+  )
   res.redirect("/profile");
+})
+router.post("/logout", function(req, res, next) {
+  req.logout(function(err){
+    if (err) {return next(err);}
+    res.redirect("/login");
+  });
 })
 module.exports = router;

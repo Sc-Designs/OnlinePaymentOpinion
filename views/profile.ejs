@@ -42,7 +42,7 @@
         </div>
 <!-- TODO: posting part -->
         <div class="w-full h-full pt-5 relative">
-            <a class="absolute -top-14 right-5 bg-red-600 px-3 py-1 rounded-lg text-white text-lg hover:font-semibold hover:bg-red-700" href="/login">- LogOut -</a>
+            <form class="absolute -top-14 right-5 bg-red-600 px-3 py-1 rounded-lg text-white text-lg hover:font-semibold hover:bg-red-700" action="/logout" method="post"><input type="submit" value="- LogOut -"></form>
             <h1 class="text-center text-4xl text-white font-semibold"><%= user.fullname %> <i id="edit-name" class="ri-pencil-fill text-lg"></i></h1>
             <h1 class="text-center text-2xl text-zinc-200 font-semibold">@<%= user.username %></h1>
             <div class="w-full h-64 p-4 relative">
