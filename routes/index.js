@@ -70,7 +70,7 @@ router.get('/about', function(req, res, next) {
   // Convert each user's profile picture buffer to Base64
   posts.forEach(post => {
     if (post.user.profilePicture) {
-      post.user.profilePictureBase64 = post.user.profilePicture.toString('base64');
+      post.user.profilePicture = post.user.profilePicture.toString('base64');
     }
   });
   res.render('docs', { posts });
