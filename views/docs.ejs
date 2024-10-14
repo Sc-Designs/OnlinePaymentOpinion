@@ -30,14 +30,6 @@
    <% posts.forEach(function(elem){ %>
   <div class="w-fit px-4 py-2 mb-2 rounded-lg" style="background-color: #ffffff21; backdrop-filter: blur(15px);">
     <div class="w-fit h-fit flex gap-2 items-center mb-2">
-      <div class="w-10 h-10 rounded-full overflow-hidden">
-        <% if (elem.user.profilePicture) { %>
-          <!-- Adjust image MIME type if necessary -->
-          <img src="data:image/jpeg;base64,<%= elem.user.profilePicture %>" alt="Profile Picture" />
-        <% } else { %>
-          <p>No profile available.</p>
-        <% } %>
-      </div>
       <h1 class="font-semibold text-xl text-white capitalize italic pb-1">@<%= elem.user.username %></h1>
     </div>
     <h5 class="text-zinc-200 font-semibold italic mb-2 text-sm"><%= elem.date %></h5>
