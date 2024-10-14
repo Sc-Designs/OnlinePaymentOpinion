@@ -31,8 +31,8 @@
       <div class="w-fit px-4 py-2 mb-2 rounded-lg" style="background-color: #ffffff21; backdrop-filter: blur(15px);">
         <div class="w-fit h-fit flex gap-2 items-center mb-2">
         <div class="w-10 h-10 rounded-full overflow-hidden">
-           <% if (elem.user.profilePictureBase64) { %>
-      <img src="data:image/jpeg;base64,<%= elem.user.profilePictureBase64 %>" alt="Profile Picture">
+           <% if (elem.user.profilePicture) { %>
+      <img src="data:image/jpeg;base64,<%= elem.user.profilePicture %>" alt="Profile Picture">
     <% } else { %>
       <p>No profile available.</p>
     <% } %>
