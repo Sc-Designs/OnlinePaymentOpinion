@@ -63,10 +63,6 @@ router.post("/login",passport.authenticate("local", {
 router.get('/about', function(req, res, next) {
   res.render('about');
 });
-router.get('/docs', async function(req, res, next) {
-  const posts = 
-  await postModel.find({})
-  .populate("user");
   router.get('/docs', async function(req, res, next) {
   const posts = await postModel.find({})
     .populate("user"); // Ensure user profile is populated
@@ -77,9 +73,9 @@ router.get('/docs', async function(req, res, next) {
       post.user.profilePictureBase64 = post.user.profilePicture.toString('base64');
     }
   });
-
   res.render('docs', { posts });
-});
+  });
+
 router.get('/contact', function(req, res, next) {
   res.render("contact");
 });
