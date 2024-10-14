@@ -35,7 +35,9 @@
         <div class="pt-16 relative">
             <div class="h-fit w-fit relative z-50 left-[50%] -translate-x-[50%]">
             <div class="w-28 h-28 bg-[url('https://i.pinimg.com/474x/66/ff/cb/66ffcb56482c64bdf6b6010687938835.jpg')] bg-[length:130px_140px] bg-center rounded-full overflow-hidden">
-                <img class="h-full w-full object-cover" src="/images/upload/<%= user.profileImage %>" alt="">
+                <% if(base64Image) {%>
+                <img class="h-full w-full object-cover" src="data:image/jpeg;base64,<%= base64Image %>" alt="">
+                    <% } %>
             </div>
                 <span id="pencil" class="bg-zinc-400 absolute bottom-0 right-0 rounded-full px-2 py-[0.2vw] text-lg"><i class="ri-pencil-fill"></i></span>
             </div>

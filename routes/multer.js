@@ -1,17 +1,11 @@
-const multer = require('multer');
-const {v4: uuidv4} = require('uuid');
-const path = require('path');
+// Import the Multer Module
+const multer = require("multer");
 
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, "./public/images/upload");
-  },
-  filename: function (req, file, cb) {
-    const unique = uuidv4();
-    cb(null, unique+path.extname(file.originalname));
-  },
-});
+// Set the the Multer as the memory Storage
+const storage = multer.memoryStorage();
 
+// Create the Upload Variable Where the  image upload
 const upload = multer({ storage: storage });
 
+// Export the Upload Variable
 module.exports = upload;

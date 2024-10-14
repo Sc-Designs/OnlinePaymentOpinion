@@ -15,15 +15,23 @@ router.get("/learn", function (req, res, next) {
   res.render("learn");
 });
 router.get("/profile", isLoggedIn, async function (req, res, next) {
-  const user = 
-      await userModel
-      .findOne({username: req.session.passport.user})
-      .populate("posts")
-    res.render('profile',{user});
+  try{
+
+    const user = 
+    await userModel
+    .findOne({username: req.session.passport.user})
+    .populate("posts")
+    const base64Image = user.profileImage
+      ? user.profileImage.toString("base64")
+      : null;
+        res.render('profile',{user, base64Image: base64Image});
+      }catch(e){
+        res.redirect("/login");
+      }
 });
 router.post("/fileupload",isLoggedIn, upload.single("image"),async function (req, res, next) {
   const user = await userModel.findOne({username: req.session.passport.user});
-  user.profileImage = req.file.filename;
+  user.profileImage = req.file.buffer;
   await user.save();
   res.redirect("/profile");
 });
