@@ -63,18 +63,21 @@ router.post("/login",passport.authenticate("local", {
 router.get('/about', function(req, res, next) {
   res.render('about');
 });
-  router.get('/docs', async function(req, res, next) {
+ router.get('/docs', async function(req, res, next) {
   const posts = await postModel.find({})
-    .populate("user"); // Ensure user profile is populated
-  
+    .populate("user");
+
   // Convert each user's profile picture buffer to Base64
   posts.forEach(post => {
     if (post.user.profilePicture) {
+      // Convert to Base64 string
       post.user.profilePicture = post.user.profilePicture.toString('base64');
     }
   });
+
   res.render('docs', { posts });
-  });
+});
+
 
 router.get('/contact', function(req, res, next) {
   res.render("contact");
