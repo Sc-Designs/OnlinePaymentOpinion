@@ -67,7 +67,18 @@ router.get('/docs', async function(req, res, next) {
   const posts = 
   await postModel.find({})
   .populate("user");
-  res.render('docs',{posts});
+  router.get('/docs', async function(req, res, next) {
+  const posts = await postModel.find({})
+    .populate("user"); // Ensure user profile is populated
+  
+  // Convert each user's profile picture buffer to Base64
+  posts.forEach(post => {
+    if (post.user.profilePicture) {
+      post.user.profilePictureBase64 = post.user.profilePicture.toString('base64');
+    }
+  });
+
+  res.render('docs', { posts });
 });
 router.get('/contact', function(req, res, next) {
   res.render("contact");
