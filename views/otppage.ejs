@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OTP Verification</title>
+  <link
+      rel="shortcut icon"
+      href="/images/1539992783.webp"
+      type="image/x-icon" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .card {
+      width: 40vw;
+      border: none;
+      height: 30vw;
+      box-shadow: 0px 5px 20px 0px #d2dae3;
+      z-index: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #c6c6c6;
+      gap:1vw;
+    }
+
+    .inputs input {
+      width: 40px;
+      height: 40px;
+      outline: none !important;
+    }
+
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      margin: 0;
+    }
+
+    .form:focus {
+      box-shadow: none;
+      border: 2px solid red;
+    }
+
+    .validate {
+      border-radius: 20px;
+      height: 40px;
+      background-color: red;
+      border: 1px solid red;
+      width: 140px;
+    }
+    #reSend{
+      background-color: gray;
+    }
+  </style>
+</head>
+<body>
+  <div class="h-screen flex justify-center items-center">
+    <div class="relative">
+      <div class="card p-2 text-center flex flex-col">
+        <h6 class="font-black uppercase text-3xl text-red-500">Please enter the one-time password <br> to verify your account</h6>
+        <div> <span>A code has been sent to</span> <code id="Email"></code></div>
+        <form action="/verifyOtp" method="post" id="otp-form">
+          <div id="otp" class="inputs flex flex-row justify-center mt-2">
+            <input class="m-2 text-center form rounded-lg" type="text" id="first" maxlength="1" autocomplete="off" required />
+            <input class="m-2 text-center form rounded-lg" type="text" id="second" maxlength="1" autocomplete="off" required />
+            <input class="m-2 text-center form rounded-lg" type="text" id="third" maxlength="1" autocomplete="off" required />
+            <input class="m-2 text-center form rounded-lg" type="text" id="fourth" maxlength="1" autocomplete="off" required />
+          </div>
+          <input type="hidden" name="otp" id="otp-hidden" value="">
+          <div class="mt-4">
+            <button type="submit" class="btn bg-orange-500 px-4 validate">Validate</button>
+            <p id="timer" class="mt-5 text-2xl font-black font-mono">00:60</p>
+          </div>
+        </form>
+        <form action="">
+          <input id="email_text" type="hidden" name="email" value="<%= user.Email %>">
+          <input id="reSend" type="submit" class="px-4 py-1 cursor-pointer text-white text-lg rounded-sm" value="Resend OTP">
+        </form>
+      </div>
+    </div>
+  </div>
+  </body>
+  <script src="/javascripts/otp.js"></script>
+</html>

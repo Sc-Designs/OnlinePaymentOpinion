@@ -1,39 +1,45 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+let createError = require('http-errors');
+let express = require('express');
+let path = require('path');
+let cookieParser = require('cookie-parser');
+let logger = require('morgan');
 const expressSession = require("express-session");
-const passport = require("passport");
 const flash = require("connect-flash");
+let bodyParser = require("body-parser");
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+require("dotenv").config();
 
-var app = express();
+require("./mongoose.connection");
+let indexRouter = require('./routes/index');
+let usersRouter = require('./routes/users');
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
-
-app.use(expressSession({
-  resave: false,
-  saveUninitialized: false,
-  secret: "Cash Less India Secretly",
-}));
-app.use(passport.initialize());
-app.use(passport.session());
-passport.serializeUser(usersRouter.serializeUser());
-passport.deserializeUser(usersRouter.deserializeUser());
-
-app.use(flash());
+let app = express();
 
 app.use(logger('dev'));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(expressSession({
+  resave: false,
+  saveUninitialized: false,
+  secret: process.env.SESSION_SECRET,
+}));
+
+
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+
+app.use(flash());
+app.use((req, res, next) => {
+  res.locals.error = req.flash("error");
+  res.locals.success = req.flash("success");
+  next();
+});
+
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
@@ -54,4 +60,10 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+const PORT = process.env.PORT || 3000; 
+app.listen(PORT, () => {
+  console.log(`Example app listening on port ${PORT}`)
+})
+
 module.exports = app;
+

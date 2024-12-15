@@ -26,16 +26,16 @@
         <form action="/register" method="post" class="flex flex-col items-center relative">
             <h1 class="text-white text-lg font-semibold mt-2">-Full Name-</h1>
             <p id="name-error" class="absolute top-7 text-zinc-100 font-semibold hidden"></p>
-            <input class="outline-none rounded-lg mt-4 inline-block w-80 border-2 border-black placeholder:text-zinc-900 font-semibold text-lg h-10 px-2" type="text" name="fullname" id="name" placeholder="FullName" autocomplete="off">
+            <input class="outline-none rounded-lg mt-4 inline-block w-80 border-2 border-black placeholder:text-zinc-900 font-semibold text-lg h-10 px-2" type="text" name="fullname" id="name" placeholder="FullName" autocomplete="on">
             <h1 class="text-white text-lg font-semibold">-Email-</h1>
             <p id="email-error" class="absolute top-28 text-zinc-100 font-semibold hidden"></p>
-            <input class="outline-none rounded-lg mt-4 inline-block w-80 border-2 border-black placeholder:text-zinc-900 font-semibold text-lg h-10 px-2" type="email" name="email" id="email" placeholder="Email (like - abcd@gmail.com)" autocomplete="off">
+            <input class="outline-none rounded-lg mt-4 inline-block w-80 border-2 border-black placeholder:text-zinc-900 font-semibold text-lg h-10 px-2" type="email" name="email" id="email" placeholder="Email (like - abcd@gmail.com)" autocomplete="on">
             <h1 class="text-white text-lg font-semibold">-Username-</h1>
             <p id="user-error" class="absolute top-[49%] text-zinc-100 font-semibold hidden"></p>
-            <input class="outline-none rounded-lg mt-4 inline-block w-80 border-2 border-black placeholder:text-zinc-900 font-semibold text-lg h-10 px-2" type="text" name="username" id="username" placeholder="Username (like - Abc123)" autocomplete="off">
+            <input class="outline-none rounded-lg mt-4 inline-block w-80 border-2 border-black placeholder:text-zinc-900 font-semibold text-lg h-10 px-2" type="text" name="username" id="username" placeholder="Username (like - Abc123)" autocomplete="on">
             <h1 class="text-white text-lg font-semibold">-Password-</h1>
             <p id="pass-error" class="absolute top-[70%] text-zinc-100 font-semibold hidden"></p>
-            <input class="outline-none rounded-lg mt-4 inline-block w-80 border-2 border-black placeholder:text-zinc-900 font-semibold text-lg h-10 px-2" type="password" name="password" id="seeing" placeholder="Password (like - Abc@123)" autocomplete="off"> <span id="pass" class="absolute top-[77%] right-3"><i class="ri-eye-close-line"></i></span>
+            <input class="outline-none rounded-lg mt-4 inline-block w-80 border-2 border-black placeholder:text-zinc-900 font-semibold text-lg h-10 px-2" type="password" name="password" id="seeing" placeholder="Password (like - Abc@123)" autocomplete="on"> <span id="pass" class="absolute top-[77%] right-3"><i class="ri-eye-close-line"></i></span>
             <input class="bg-red-500 mt-5  px-24 py-1 text-lg text-white rounded-lg border-2 uppercase border-black" type="submit" value="Sign In" onclick="return check()">
         </form>
         <a class="absolute text-white underline bottom-3 right-9 text-lg font-semibold " href="/login">- Login -</a>

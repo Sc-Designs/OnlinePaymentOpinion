@@ -1,21 +1,36 @@
 const mongoose = require("mongoose");
-const plm = require("passport-local-mongoose");
-const connectDB = async()=>{
-  await mongoose.connect(
-    "mongodb+srv://nfgaming4523:kWGZJd299BcKiEKR@users.fau7n.mongodb.net/?retryWrites=true&w=majority&appName=Users"
-  );
-} 
-connectDB()
-const userSchema = mongoose.Schema({
-  fullname: String,
-  email: String,
-  username: String,
-  profileImage: Buffer,
+
+const userSchema = new mongoose.Schema({
+  fullname: {
+    type: String,
+    default: null
+  },
+  email: {
+    type: String,
+    unique: true
+  },
+  username: {
+    type: String,
+    default: null
+  },
+  profileImage: {
+    type: Buffer,
+    default: null
+  },
   password: String,
   posts:[{
     type: mongoose.Schema.Types.ObjectId,
     ref: "post"
-  }]
+  }],
+  otp: {
+    type: String,
+    default: null
+  },
+  otpExpiry: {
+    type: Date,
+    default: null
+  }
 });
-userSchema.plugin(plm);
-module.exports = mongoose.model("user", userSchema);
+
+module.exports = mongoose.model("userModel", userSchema);
+
