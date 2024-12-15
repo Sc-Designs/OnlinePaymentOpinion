@@ -1,4 +1,54 @@
-node_modules
-package.json
-package-lock.json
+node_modules/
 .env
+package-lock.json
+package.json
+.DS_Store
+._*
+*.sublime-project
+*.sublime-workspace
+*.log
+npm-debug.log
+yarn-error.log
+pids
+*.pid
+*.seed
+*.key
+*.pem
+*.crt
+*.p12
+*.pfx
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.userprefs
+
+# dotnet
+bin/
+obj/
+Debug/
+Release/
+TestResults/
+
+# npm
+npm-debug.log*
+
+# yarn
+yarn-error.log*
+yarn.lock
+
+# typescript
+*.tsbuildinfo
+
+# testing
+coverage/
+*.spec.js
+*.test.js
+
+# production
+build/
+dist/
