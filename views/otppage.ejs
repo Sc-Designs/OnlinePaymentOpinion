@@ -73,8 +73,8 @@
             <p id="timer" class="mt-5 text-2xl font-black font-mono">00:60</p>
           </div>
         </form>
-        <form action="">
-          <input id="email_text" type="hidden" name="email" value="<%= user.Email %>">
+        <form action="/reSend_otp" method="post">
+          <input id="email_text" type="hidden" name="email" value="<%= user.email %>">
           <input id="reSend" type="submit" class="px-4 py-1 cursor-pointer text-white text-lg rounded-sm" value="Resend OTP">
         </form>
       </div>

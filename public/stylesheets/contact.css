@@ -3,6 +3,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+body::-webkit-scrollbar{
+  display: none;
+}
 ::selection{
   color: rgb(255, 255, 255);
   background-color: rgb(0, 0, 0);

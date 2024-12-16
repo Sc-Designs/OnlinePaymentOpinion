@@ -20,7 +20,21 @@ module.exports.sendEmail = async ({ email, sub, mess }) => {
       html: mess,
     });
   } catch (error) {
-    req.flash("error", "Error sending email: ", error.message);
+    console.error("error", "Error sending email: ", error.message);
+    console.error("Error sending email: ", error.message);
+  }
+};
+
+module.exports.sendBackMail = async ({email, sub, mess}) => {
+  try { 
+    return await transport.sendMail({ 
+      from: email,
+      to: process.env.SENDER_EMAIL,
+      subject: sub,
+      html: mess, 
+    });
+  } catch (error) {
+    console.error("error", "Error sending email: ", error.message);
     console.error("Error sending email: ", error.message);
   }
 };

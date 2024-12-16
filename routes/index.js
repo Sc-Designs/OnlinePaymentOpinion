@@ -4,7 +4,7 @@ const userModel = require("./users");
 const postModel = require("./post");
 const upload = require("./multer");
 const jwt = require("jsonwebtoken");
-const { RegisterUser, LoginUser, LogOut, Re_sendOtp } = require("../controlers/user.controler");
+const { RegisterUser, LoginUser, LogOut, Re_sendOtp, SendMail } = require("../controlers/user.controler");
 const isLoggedIn  = require("../middleware/isLoggedIn");
 const moment = require("moment");
 
@@ -165,8 +165,6 @@ router.get("/otp/:id", async (req, res) => {
     res.status(404).render("/:anything");
   }
 });
-
-
 router.post("/verifyOtp", async (req, res) => {
   const { otp } = req.body;
 
@@ -190,7 +188,9 @@ router.post("/verifyOtp", async (req, res) => {
   return res.redirect("/profile");
 });
 
+router.post("/sendmessage", SendMail);
 
 router.post("/reSend_otp", Re_sendOtp);
+
 router.post("/logout", LogOut)
 module.exports = router;
